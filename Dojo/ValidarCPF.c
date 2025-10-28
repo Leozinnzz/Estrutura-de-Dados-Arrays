@@ -73,41 +73,41 @@ int main() {
 				} 
 			}
 		
-			if(havL) { 
+			int lenth = 0;
+			while(cpf[lenth] != '\0') 
+					lenth++;
+					
+			if(lenth != 11) { 
+				printf("CPF deve ter exatamente 11 caracteres"); 
+				break;
+			}
+			else if(havL) { 
 				printf("\nNúmero de Cartão deve ter somente caracteres numéricos\n");
+				break;
 			} 
 			else {
-				int lenth = 0;
-				while(cpf[lenth] != '\0') 
-					lenth++;
-				if(lenth != 11) {
-					printf("CPF deve ter exatamente 11 caracteres"); 
-				} 
-				else {
-					for(int i = 0; i < 11; i++) {
-						int soma1 = 0, soma2 = 0;
-						cpf[i] = (cpf[i] - '0');
+				for(int i = 0; i < 11; i++) {
+					int soma1 = 0, soma2 = 0;
+					cpf[i] = (cpf[i] - '0');
 			
-						for(int i = 0; i < 9; i++) 
-							soma1 += (cpf[i] - '0') * (i+1); 
-						dv1 = (soma1 % 11) > 9 ? 0 : soma1 % 11;
-						cpf[9] = dv1 + '0';
+					for(int i = 0; i < 9; i++) 
+						soma1 += (cpf[i] - '0') * (i+1); 
+					dv1 = (soma1 % 11) > 9 ? 0 : soma1 % 11;
+					cpf[9] = dv1 + '0';
 		 
-						for(int i = 0; i < 10; i++) 
-							soma2 += (cpf[i] - '0') * i;
-						dv2 = (soma2 % 11) > 9 ? 0 : soma2 % 11;
-						cpf[10] = '0' + dv2;
-					}
+					for(int i = 0; i < 10; i++) 
+						soma2 += (cpf[i] - '0') * i;
+					dv2 = (soma2 % 11) > 9 ? 0 : soma2 % 11;
+					cpf[10] = '0' + dv2;
+				}
 			
-					printf("\n");
-			
-					if(dv1 != (cpf[9] - '0'))
-						printf("DV1 INCORRETO\n");
-					else if(dv2 != (cpf[10] - '0')) 
-						printf("DV2 incorreto!\n");
-					else 
-						printf("CPF VALIDO!\n");
-				} 
+				printf("\n");
+				if(dv1 != (cpf[9] - '0')) 
+					printf("DV1 INCORRETO\n");
+				else if(dv2 != (cpf[10] - '0')) 
+					printf("DV2 incorreto!\n");
+				else 
+					printf("CPF VALIDO!\n");
 			}
 		}
 				else if(esc == 0){

@@ -84,36 +84,36 @@ int main() {
 			while(cartao[lenth] != '\0') 
 				lenth++;
 			
-			if(lenth != 16)
+			if(lenth != 16) {
 				printf("\nNúmero de Cartão deve ter exatamente 16 caracteres\n");
-			
-			else { 
-				if(!havL) {
-					printf("\nNúmero de Cartão deve ter somente caracteres numéricos\n");
-				}
-				else {
-					int somaDig = 0;
-				
-					//validar cartao
-					for(int i = 0; i < 15; i++) {
-						digito = (cartao[i] - '0');
-				
-						if(i % 2 == 0) {
-							digito *= 2;
-							if(digito > 9) 
-								digito -= 9; 
-						} 
-						somaDig += digito;
-					} 
-					int expected = (10 - (somaDig % 10)) % 10;
-		
-					if((cartao[15] - '0') == expected)
-						printf("\nCARTAO VALIDO!\n");
-					else 
-						printf("\nCARTAO INVALIDO!\n");
-				}
-				printf("\n");
+				break;
 			}
+			else if(havL) {
+				printf("\nNúmero de Cartão deve ter somente caracteres numéricos\n");
+				break;
+			}
+			else {
+				int somaDig = 0;
+				
+				//validar cartao
+				for(int i = 0; i < 15; i++) {
+					digito = (cartao[i] - '0');
+				
+					if(i % 2 == 0) {
+						digito *= 2;
+						if(digito > 9) 
+							digito -= 9; 
+					} 
+					somaDig += digito;
+				} 
+				int expected = (10 - (somaDig % 10)) % 10;
+		
+				if((cartao[15] - '0') == expected)
+					printf("\nCARTAO VALIDO!\n");
+				else 
+					printf("\nCARTAO INVALIDO!\n");
+			}
+			printf("\n");
 		}
 		else if(resp == 3){
 			printf("PROGRAMA ENCERRADO");
