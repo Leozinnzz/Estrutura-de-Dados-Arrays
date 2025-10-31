@@ -8,43 +8,38 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <time.h>
+#include <string.h>
 
 int main() {
     
+    //buble sort
+    
     srand(time(NULL));
-    int vet[10] = {0}; 
     
-    int size = 10;
-    
-    for(int i = 0; i < size; i++){
-		vet[i] = i+1;
-		printf("[%d] ", vet[i]);
+	int vet[10]; 
+	int temp;
+	
+	int index = 10;
+	
+	//preencher numeros aleatorios
+	for(int i = 0; i < index; i++) {
+		vet[i] = 1 + rand() % 100;
 	}
 	
-	printf("\n");
-	
-	for(int i = 0; i < size; i++){
-		printf("[%d] ", i);
+	//buble sort
+	for(int i = 0; i < index; i++) {
+		for(int j = 0; j < index - 1 - i; j++) { 
+			if(vet[j] < vet[j+1]) {
+				temp = vet[j];
+				vet[j] = vet[j+1];
+				vet[j+1] = temp;
+			}
+			
+		}
 	}
-  
-	//invertendo o vetor
-	for(int i = 0; i < size/2; i++){
-		int temp = vet[i];
-		vet[i] = vet[size - 1 - i];
-		vet[size - 1 - i] = temp;  // (7 6 5 4 3 2 1)
-	}
 	
-	printf("\n");
-	
-	printf("\nVetor invertido \n");
-	for(int i = 0; i < size; i++) {
-		printf("[%d] ", vet[i]);
-	}
-   
-	printf("\n");
-	
-    for(int i = 0; i < size; i++){
-		printf("[%d] ", i);
+	for(int i = 0; i < index; i++) { 
+		printf("[%d]\n", vet[i]);
 	}
  
     
