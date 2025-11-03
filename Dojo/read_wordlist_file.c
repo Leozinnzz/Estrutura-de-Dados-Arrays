@@ -14,7 +14,7 @@ int main(int args, char* arquivo[]){
 	if(!arq){
 		printf("Arquivo não existente\n");
 		return 0;
-	}
+	}w
 
 	char nomes[50][100];
 	int c = 0;

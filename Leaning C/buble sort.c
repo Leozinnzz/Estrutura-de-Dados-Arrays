@@ -7,42 +7,40 @@
 
 #include <stdio.h>
 #include <stdlib.h>
-#include <time.h>
 #include <string.h>
+#include <time.h>
+
+#define LENTH 10
 
 int main() {
-    
-    //buble sort
-    
+   
+	
     srand(time(NULL));
+    int vet[LENTH];
     
-	int vet[10]; 
-	int temp;
-	
-	int index = 10;
-	
-	//preencher numeros aleatorios
-	for(int i = 0; i < index; i++) {
-		vet[i] = 1 + rand() % 100;
+	printf("\nVETOR DESORDENADO\n");
+	for(int i = 0; i < LENTH; i++) {
+		vet[i] = rand() % 10;
+		printf("[%d]", vet[i]);
 	}
-	
+
+
 	//buble sort
-	for(int i = 0; i < index; i++) {
-		for(int j = 0; j < index - 1 - i; j++) { 
+	for(int i = 0; i < LENTH - 1; i++) { 
+		for(int j = 0; j < LENTH - 1 - i; j++) {
 			if(vet[j] > vet[j+1]) {
-				temp = vet[j];
+				int temp = vet[j];
 				vet[j] = vet[j+1];
 				vet[j+1] = temp;
 			}
-			
 		}
 	}
 	
-	for(int i = 0; i < index; i++) { 
-		printf("[%d]\n", vet[i]);
+	printf("\nVETOR ORDENADO\n");
+	for(int i = 0; i < LENTH; i++) {
+		printf("[%d]", vet[i]);
 	}
- 
-    
+	
     //the destroyer of codes
 }
 
