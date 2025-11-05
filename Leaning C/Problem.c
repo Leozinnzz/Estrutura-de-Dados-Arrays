@@ -25,11 +25,11 @@ int main() {
 		
 		int vet[n];  
 		
-		int flag = 1;
+		int flag;
 		for(int i = 0; i < SIMULACOES; i++) {
 			flag = 1;
 			for(int j = 0; j < n; j++) {
-				vet[j] = rand() % (2*n);
+				vet[j] = rand() % (2*n+1);
 			}
 			for(int j = 0; j < n; j++) { 
 				for(int k = j+1; k < n; k++) { 
