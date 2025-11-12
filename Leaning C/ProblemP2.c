@@ -25,19 +25,19 @@ int main() {
 	do {
 		repet = 0;
 		for( int i = 0; i < SIMULACAO; i++) {
-			flag = 1; 
+			flag = 0; 
 			for(int j = 0; j < SIZE; j++) { 
 					vet[j] = rand() % n;
 				for(int k = j+1; k < SIZE; k++) {
 					if(vet[j] == vet[k]) {
-						flag = 0;
+						flag = 1;
 						break;
 					}
 				}
-				if(!flag) 
+				if(flag) 
 					break;
 			}
-			if(!flag) 
+			if(flag) 
 				repet++;
 		}
 		
@@ -45,7 +45,7 @@ int main() {
 		
 		if(percentagem == 100.0f) {
 			printf("\n 100%% dos cenarios numero %d \n", n);
-			printf("\nPorcentagem : %f%% ", percentagem);
+			printf("\nPorcentagem : %f%% \n", percentagem);
 			break;
 		}
 		
@@ -57,26 +57,26 @@ int main() {
 	do {
 		repet = 0;
 		for( int i = 0; i < SIMULACAO; i++) {
-			flag = 1; 
+			flag = 0; 
 			for(int j = 0; j < SIZE; j++) { 
-					vet[j] = rand() % n;
+				vet[j] = rand() % n;
 				for(int k = j+1; k < SIZE; k++) {
 					if(vet[j] == vet[k]) {
-						flag = 0;
+						flag = 1;
 						break;
 					}
 				}
-				if(!flag) 
+				if(flag) 
 					break;
 			}
-			if(flag) 
+			if(!flag) 
 				repet++;
 		}
 		
 		float percentagem = ((float)repet / SIMULACAO) * 100;
 		
-		if(percentagem == 0.0f) {
-			printf("\n 0%% dos cenarios numero %d \n", n);
+		if(percentagem < 1.1f) {
+			printf("\n 0%% dos cenarios\n" );
 			printf("\nPorcentagem : %f%% \n", percentagem);
 			break;
 		}
