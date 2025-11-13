@@ -54,17 +54,17 @@ int main() {
 	
 	
 	//insection sort
-	int key, j;
 	printf("\nINSECTION SORT\n");
-	for(int i = 1; i < SIZE; i++) { 
+	int key, j;
+	for(int i = 0; i < SIZE; i++) { 
 		key = vet[i];
 		j = i - 1;
 		
 		while(j >= 0 && vet[j] > key) { 
-			vet[j + 1] = vet[j]; 
+			vet[j+1] = vet[j];
 			j--;
-		} 
-		vet[j + 1] = key;
+		}
+		vet[j+1] = key;
 	}
 	
 	for(int i = 0; i < SIZE; i++) 
