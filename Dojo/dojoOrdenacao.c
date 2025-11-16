@@ -122,10 +122,6 @@ int main() {
 		
 	}while(1);
 
-	
-	
-    
-
     //the destroyer of codes
 }
 
